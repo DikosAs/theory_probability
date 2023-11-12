@@ -1,0 +1,33 @@
+{
+  "answer_is_true_is_good": "4",
+  "time_is_good_in_second": "600",
+  "numbers": "5",
+  "answer_is_true": "0",
+  "tasks": [
+    {
+      "text":"1",
+      "answer": ["1"],
+      "status": "True"
+    },
+    {
+      "text":"2",
+      "answer": ["2"],
+      "status": "True"
+    },
+    {
+      "text":"3",
+      "answer": ["3"],
+      "status": "True"
+    },
+    {
+      "text":"4",
+      "answer": ["4"],
+      "status": "True"
+    },
+    {
+      "text":"5",
+      "answer": ["5"],
+      "status": "True"
+    }
+  ]
+}
