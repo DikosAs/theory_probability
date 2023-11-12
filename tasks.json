@@ -2,7 +2,7 @@
   "answer_is_true_is_good": "4",
   "time_is_good_in_second": "600",
   "numbers": "5",
-  "answer_is_true": "0",
+  "answer_is_true": {},
   "tasks": [
     {
       "text":"1",
