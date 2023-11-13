@@ -90,12 +90,22 @@ def main(page: Page):
                 [
                     Text(
                         f"{minutes}:{seconds}",
-                        color=color,
+                        color=colors.BLACK,
                         size=30
                     )
                 ],
                 alignment=MainAxisAlignment.CENTER
-            )
+            ),
+        Row(
+            [
+                Text(
+                    f"Для 5 задач норма по времени 6-7 минут",
+                    color=colors.BLACK,
+                    size=30
+                )
+            ],
+            alignment=MainAxisAlignment.CENTER
+        )
         )
 
     task("")
