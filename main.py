@@ -25,7 +25,7 @@ def main(page: Page):
 
         def test_and_go(e):
             tasks["numbers"] = int(tasks["numbers"]) - 1
-            tasks["answer_is_true"][str(int(tasks["numbers_def"]) - int(tasks["numbers"]))] = "1" if answer.value in task_info.get("answer") else "0"
+            tasks["answer_is_true"][str(int(tasks["numbers_def"]) - int(tasks["numbers"]))] = "1" if answer.value.replace(".", ",") == task_info.get("answer") else "0"
             if tasks["numbers"] > 0:
                 task("")
             else:
@@ -40,7 +40,10 @@ def main(page: Page):
             Row(
                 [
                     VerticalDivider(color=colors.BLACK, thickness=2),
-                    Text(task_info.get("text"), width=1200, height=300, size=20),
+                    Column([
+                        Text(task_info.get("text"), width=1200, height=350, size=20),
+                        Text("Ответ округлите до сотых", width=1200, height=50, size=20)
+                    ]),
                     VerticalDivider(color=colors.BLACK, thickness=2)
                 ],
                 alignment=MainAxisAlignment.CENTER,
@@ -76,12 +79,18 @@ def main(page: Page):
                 )
             )
 
+        time_work = int(time.time() - time_start)
+        minutes = time_work//60
+        seconds = time_work-(time_work//60*60)
+        seconds = seconds if seconds >= 10 else f"0{seconds}"
+        color = colors.YELLOW if minutes < 6 else colors.GREEN if minutes > 6 and (minutes < 7 or (minutes == 7 and int(seconds) == 0)) else colors.RED
+
         page.add(
             Row(
                 [
                     Text(
-                        str(int(time.time() - time_start))+" секунд",
-                        color=colors.GREEN if int(time.time() - time_start) <= int(tasks["time_is_good_in_second"]) else colors.RED,
+                        f"{minutes}:{seconds}",
+                        color=color,
                         size=30
                     )
                 ],
